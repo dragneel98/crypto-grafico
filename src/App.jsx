@@ -4,10 +4,6 @@ import CryptoTable from './components/CryptoTable'
 import LineCharts from './components/LineCharts'
 
 function App() {
-  let ceos = ['Sundar', 'Mark', 'Tim', 'Jeff'];
-
-ceos.map((ceo, index) => console.log(`The ${index} is ${ceo}`));
-
   return (
     <div className="app">
       {/* <LineCharts></LineCharts> */}

@@ -3,3 +3,9 @@ table, th, td{
     border: solid 1px;
     border-collapse: collapse;
 }
+.crypto-logo{
+    width: 1rem;
+    justify-content: center;
+    align-items: center;
+
+}

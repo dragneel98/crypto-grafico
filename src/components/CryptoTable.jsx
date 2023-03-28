@@ -34,11 +34,13 @@ export default function CryptoTable() {
       {data.map((crypto, index) =>{
         return(
         <tr key={crypto.id}>
-          <td> {crypto.index} </td>
-          <td> {crypto.id}</td>
+          <td> {index} </td>
+          <td> <img className='crypto-logo' src={crypto.image}/> {crypto.id}</td>
           <td> {crypto.current_price} </td>
-          <td>Perro callejero</td>
+          <td> {crypto.price_change_percentage_24h}% </td>
           <td>Cocker Spaniel</td>
+          <td> {crypto.total_volume} </td>
+          <td> {crypto.market_cap} </td>
         </tr>
       )})}  
       </tbody>
