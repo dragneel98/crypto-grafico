@@ -1,17 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
-
+import "./cryptoTable.css"
 export default function CryptoTable() {
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
+
     async function request() {
        const fetchRequest = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true")
        const json = await fetchRequest.json()
-       console.log(json);
+       setData(json)
+       console.log(json)
     }
-    request()
+    useEffect(() => {
+      request()
+    }, [])
     
   return (
-    <p>gg</p>
+    <>
+      <button onClick={request}>g</button>
+     <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>moneda</th>
+          <th>precio</th>
+          <th>1h</th>
+          <th>24h</th>
+          <th>volumen</th>
+          <th>market cap</th>
+          <th>ultimos 7 dias</th>
+        </tr>
+      </thead>
+      <tbody>
+      {data.map((crypto, index) =>{
+        return(
+        <tr key={crypto.id}>
+          <td> {crypto.index} </td>
+          <td> {crypto.id}</td>
+          <td> {crypto.current_price} </td>
+          <td>Perro callejero</td>
+          <td>Cocker Spaniel</td>
+        </tr>
+      )})}  
+      </tbody>
+    </table>
+    </>
+
 //     <InfiniteScroll
 //   dataLength={items.length} //This is important field to render the next data
 //   next={fetchData}
